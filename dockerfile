@@ -41,7 +41,7 @@ COPY tmpl/pages/index.md /usr/local/share/mmdocs-tmpl/pages/index.md
 # ################
 #
 
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]

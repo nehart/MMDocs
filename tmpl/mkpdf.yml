@@ -34,15 +34,4 @@ plugins:
 
 
 nav:
-  - 'Introduction': './MPLS000PDF.md'
-
-
-extra_css:
-  - assets/katex/dist/katex.css
-
-
-extra_javascript:
-  - assets/katex/dist/katex.js
-  - assets/katex/dist/contrib/auto-render.js
-  - assets/mathjax-3/es5/tex-mml-chtml.js
-  - assets/javascripts/custom.2292dd96.min.js
+  - 'Introduction': './pdf.md'

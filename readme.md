@@ -47,6 +47,10 @@ docker build --no-cache -f dockerfile -t registry.ans.co.at/templates/mmdocs/mmd
 ```
 
 ```text
+cd test
+```
+
+```text
 docker compose run --rm mmdocs bash
 ```
 
@@ -64,6 +68,14 @@ docker compose run --rm mkdocs serve
 
 ```text
 docker compose run --rm mkdocs build
+```
+
+```text
+docker compose run --rm mkdocs build --config-file mkpdf.yml
+```
+
+```text
+cd ..
 ```
 
 <!--
