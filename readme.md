@@ -4,23 +4,16 @@ MkDocs is an open-source documentation generator used to create beautiful and us
 
 This template repository is intended for those who wish to use the MkDocs Material Theme.
 
-
-
-<!--
-
-
-The following guidelines provide instructions for working on this project.
-
 ## Clone the Repository
 
 In order to work on the template, you must first clone this repository.
 
 ```text
-git pull git@gitlab.ans.co.at:docker/mkdocs.git
+git pull git@gitlab.ans.co.at:templates/mmdocs.git
 ```
 
 ```text
-cd mkdocs/template/V02
+cd mmdocs
 ```
 
 ## Branches
@@ -28,16 +21,50 @@ cd mkdocs/template/V02
 The stable version of this project is located in the main branch. For development purposes, a new branch should be created. There is no specific naming convention for the development branches.
 
 ```text
-git branch fix_20240122
+git branch fix_issue_122
 ```
 
 ```text
-git switch fix_20240122
+git switch fix_issue_122
 ```
 
 ```text
-git push --set-upstream origin fix_20240122
+git push --set-upstream origin fix_issue_122
 ```
+
+## Development
+
+...TBC...
+
+```text
+[...]
+```
+
+Following the completion of the development process, it is imperative to conduct a localised testing of the Docker image.
+
+```text
+docker build --no-cache -f dockerfile -t registry.ans.co.at/templates/mmdocs/mmdocs:latest .
+```
+
+```text
+docker compose run --rm mmdocs bash
+```
+
+```text
+docker compose run --rm mmdocs sh
+```
+
+
+<!--
+
+```text
+docker compose run --rm mmdocs serve --config-file mkdev.yml
+```
+
+```text
+docker compose run --rm mmdocs build --config-file mkdev.yml
+```
+
 
 ## Directory Structure
 
@@ -48,32 +75,6 @@ The `build` directory has the following structure.
 | `./mkbase.yml`  | This file contains fundamental configuration for MkDocs and should never be used as the primary configuration file. Instead, it is designed to be included in the `mkdocs.yml` configuration file.       |
 | `./mkdocs.yml`  | This file inherits the `./mkbase.yml` file and extends it with site-specific WWW configuration for MkDocs. It should be used as the primary configuration file.                                          |
 | `./mkpdf.yml`   | This file inherits the `./mkdocs.yml` file and extends it with site-specific PDF configuration for MkDocs. It should be used if PDF creation is not feasible with the `./mkdocs.yml` configuration file. |
-
-## Development
-
-The template directory contains all the necessary resources to proceed with the development of the template.
-
-```text
-[...]
-```
-
-Following the completion of the development process, it is imperative to conduct a localised testing of the Docker image.
-
-```text
-docker compose run --rm mkdocs bash
-```
-
-```text
-docker compose run --rm mkdocs sh
-```
-
-```text
-docker compose run --rm mkdocs serve --config-file mkdev.yml
-```
-
-```text
-docker compose run --rm mkdocs build --config-file mkdev.yml
-```
 
 ## Pushing the Changes
 
