@@ -75,6 +75,10 @@ docker compose run --rm mkdocs build --config-file mkpdf.yml
 ```
 
 ```text
+docker compose run --rm mmdocs clean
+```
+
+```text
 cd ..
 ```
 
