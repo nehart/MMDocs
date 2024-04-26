@@ -1,0 +1,13 @@
+/*
+#
+# #############################
+# REMOVE NAVIGATION (LEFT SIDE)
+# #############################
+#
+*/
+
+@media screen {
+  .md-sidebar {
+    display: none;
+  }
+}

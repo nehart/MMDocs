@@ -54,18 +54,15 @@ docker compose run --rm mmdocs bash
 docker compose run --rm mmdocs sh
 ```
 
+```text
+docker compose run --rm mkdocs serve --config-file mkdev.yml
+```
+
+```text
+docker compose run --rm mkdocs build --config-file mkdev.yml
+```
 
 <!--
-
-```text
-docker compose run --rm mmdocs serve --config-file mkdev.yml
-```
-
-```text
-docker compose run --rm mmdocs build --config-file mkdev.yml
-```
-
-
 ## Directory Structure
 
 The `build` directory has the following structure.
