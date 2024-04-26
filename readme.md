@@ -32,16 +32,15 @@ git switch fix_issue_122
 git push --set-upstream origin fix_issue_122
 ```
 
-## Development (Template)
+## Development
 
-...TBC...
+It is important to consider the following files and folders when developing the template.
 
 | Path              | Description                                                                           |
 |:------------------|:--------------------------------------------------------------------------------------|
 | `./tmpl`          | This folder contains all the materials necessary for the MkDocs project.              |             
 | `./dockerfile`    | This file contains the build instructions for creating the Docker image.              |
 | `./entrypoint.sh` | This file serves as a starting point for the Docker container when it is initialized. |
-
 
 Following the completion of the development process, it is imperative to conduct a localised testing of the Docker image.
 
