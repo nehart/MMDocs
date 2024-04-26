@@ -32,7 +32,7 @@ git switch fix_issue_122
 git push --set-upstream origin fix_issue_122
 ```
 
-## Development
+## Development (Docker Image)
 
 ...TBC...
 
@@ -52,6 +52,10 @@ docker compose run --rm mmdocs bash
 
 ```text
 docker compose run --rm mmdocs sh
+```
+
+```text
+docker compose run --rm mkdocs init
 ```
 
 ```text
