@@ -4,6 +4,55 @@ MkDocs is an open-source documentation generator used to create beautiful and us
 
 This template repository is intended for those who wish to use the MkDocs Material Theme.
 
+It uses a modified `CSS`, and it has been enhanced with the `KaTeX` and `MathJax` JavaScript Library, along with the enabling of several additional extensions. The installation is completely performed through a Docker image, and it is fully compatible with the MkDocs Docker image that is available on <a href="https://gitlab.ans.co.at/docker/mkdocs/container_registry/25" target="_blank">https://gitlab.ans.co.at</a>.
+
+To begin, it is necessary to create a `compose.yml` file within the MkDocs documentation folder. The file should contain the following content.
+
+```text
+services:
+
+    mkdocs:
+      image: registry.ans.co.at/docker/mkdocs/mkdocs:latest
+      restart: 'no'
+      pull_policy: 'always'
+      network_mode: 'host'
+      logging:
+        driver: 'journald'
+      volumes:
+        - './:/mnt'
+        - '/etc/timezone:/etc/timezone:ro'
+        - '/etc/localtime:/etc/localtime:ro'
+
+    mmdocs:
+      image: registry.ans.co.at/templates/mmdocs/mmdocs:latest
+      restart: 'no'
+      pull_policy: 'always'
+      logging:
+        driver: 'journald'
+      volumes:
+        - './:/mnt'
+        - '/etc/timezone:/etc/timezone:ro'
+        - '/etc/localtime:/etc/localtime:ro'
+```
+
+The installation of all the necessary files for MkDocs is performed via the following command.
+
+```text
+docker compose run --rm mmdocs init
+```
+
+Once you have that, you're ready to start writing your documentation.
+
+```text
+docker compose run --rm mkdocs serve
+```
+
+```text
+docker compose run --rm mkdocs build
+```
+
+Norbert EHART (norbert@ehart.net) created this project in 2024 and it is licensed under the CC-BY license.
+
 ## Clone the Repository
 
 In order to work on the template, you must first clone this repository.
@@ -65,11 +114,11 @@ docker compose run --rm mmdocs init
 ```
 
 ```text
-docker compose run --rm mkdocs serve
+docker compose run --rm mkdocs serve --config-file mkdocs.yml
 ```
 
 ```text
-docker compose run --rm mkdocs build
+docker compose run --rm mkdocs build --config-file mkdocs.yml
 ```
 
 ```text
@@ -78,6 +127,26 @@ docker compose run --rm mkdocs build --config-file mkpdf.yml
 
 ```text
 docker compose run --rm mmdocs clean
+```
+
+```text
+cd ..
+```
+
+## Documentation
+
+When changes are made, we need to make sure that we document those changes when we release a new version.
+
+```text
+cd changelog
+```
+
+```text
+vi pages/index.md
+```
+
+```text
+docker compose run --rm mkdocs build --config-file mkpdf.yml
 ```
 
 ```text

@@ -1,0 +1,29 @@
+INHERIT: './mkdocs.yml'
+
+
+plugins:
+  - include-markdown:
+      opening_tag: "{!"
+      closing_tag: "!}"
+  - with-pdf:
+      custom_template_path: 'overrides/pdf'
+      output_path: '../ReleaseNotes.pdf'
+      render_js: true
+      headless_chrome_path: 'chromium'
+      author: 'Norert EHART'
+      copyright: ' '
+      cover: true
+      cover_logo: './overrides/html/assets/images/cover.png'
+      cover_title: 'Material for MkDocs (Template)'
+      cover_subtitle: 'Release Notes'
+      back_cover: true
+      toc_title: 'Table of Contents'
+      toc_level: 0
+      ordered_chapter_level: 0
+      debug_html: false
+      show_anchors: false
+      verbose: false
+
+
+nav:
+  - 'Introduction': './index.md'
