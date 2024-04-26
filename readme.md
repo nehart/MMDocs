@@ -4,7 +4,7 @@ MkDocs is an open-source documentation generator used to create beautiful and us
 
 This template repository is intended for those who wish to use the MkDocs Material Theme.
 
-It uses a modified `CSS`, and it has been enhanced with the `KaTeX` and `MathJax` JavaScript Library, along with the enabling of several additional extensions. The installation is completely performed through a Docker image, and it is fully compatible with the MkDocs Docker image that is available on <a href="https://gitlab.ans.co.at/docker/mkdocs/container_registry/25" target="_blank">https://gitlab.ans.co.at</a>.
+It uses a modified `CSS`, and it has been enhanced with the `KaTeX` and `MathJax` JavaScript Library, along with the enabling of several additional extensions. The installation is completely performed through a Docker image, and it is fully compatible with the MkDocs Docker image that is available on <a href="https://gitlab.ans.co.at/docker/mkdocs/container_registry/25" target="_blank">[https://gitlab.ans.co.at]</a>.
 
 To begin, it is necessary to create a `compose.yml` file within the MkDocs documentation folder. The file should contain the following content.
 
@@ -51,7 +51,7 @@ docker compose run --rm mkdocs serve
 docker compose run --rm mkdocs build
 ```
 
-There is a detailed tutorial available on <a href="https://nehart.ans.co.at/writing/mkdocs/template_material_v1/" target="_blank">https://nehart.ans.co.at/writing</a>.
+There is a detailed tutorial available on <a href="https://nehart.ans.co.at/writing/mkdocs/template_material_v1/" target="_blank">[https://nehart.ans.co.at/writing]</a>.
 
 Norbert EHART (norbert@ehart.net) created this project in 2024 and it is licensed under the CC-BY license.
 
