@@ -51,7 +51,7 @@ docker compose run --rm mkdocs serve
 docker compose run --rm mkdocs build
 ```
 
-There is a detailed tutorial available on <a href="https://nehart.ans.co.at/writing/mkdocs/template_material_v1/" target="_blank">[https://nehart.ans.co.at/writing]</a>.
+There is a detailed tutorial available on <a href="https://nehart.ans.co.at/writing/mkdocs/TMPL_MMDOCs/" target="_blank">[https://nehart.ans.co.at/writing]</a>.
 
 Norbert EHART (norbert@ehart.net) created this project in 2024 and it is licensed under the CC-BY license.
 
