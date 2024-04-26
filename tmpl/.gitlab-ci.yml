@@ -1,0 +1,24 @@
+stages:
+  - 'create-pages'
+  - 'create-release'
+
+pages:
+  image: 'registry.ans.co.at/cdn/mkdocs/mkdocs:latest'
+  stage: 'create-pages'
+  script: 'mkdocs build'
+  artifacts:
+    paths:
+      - 'public'
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^[V]?[\d]+[\.][\d]+[\.][\d]+[-][B]?[0-9]{10}$/'
+
+create-release:
+  image: 'registry.gitlab.com/gitlab-org/release-cli:latest'
+  stage: 'create-release'
+  script: 'echo "create release for $CI_COMMIT_TAG"'
+  release:
+    name: '$CI_COMMIT_TAG'
+    description: 'Created with CI/CD'
+    tag_name: '$CI_COMMIT_TAG'
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^[V]?[\d]+[\.][\d]+[\.][\d]+[-][B]?[0-9]{10}$/'
