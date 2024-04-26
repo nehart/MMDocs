@@ -55,7 +55,7 @@ docker compose run --rm mmdocs sh
 ```
 
 ```text
-docker compose run --rm mkdocs init
+docker compose run --rm mmdocs init
 ```
 
 ```text
