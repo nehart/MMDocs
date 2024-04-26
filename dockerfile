@@ -24,9 +24,6 @@ USER 0:0
 # #############
 #
 
-COPY tmpl/.gitignore /usr/local/share/mmdocs-tmpl/.gitignore
-COPY tmpl/.gitlab-ci.yml /usr/local/share/mmdocs-tmpl/.gitlab-ci.yml
-
 COPY tmpl/mkbase.yml /usr/local/share/mmdocs-tmpl/mkbase.yml
 COPY tmpl/mkdocs.yml /usr/local/share/mmdocs-tmpl/mkdocs.yml
 COPY tmpl/mkpdf.yml /usr/local/share/mmdocs-tmpl/mkpdf.yml
@@ -34,6 +31,7 @@ COPY tmpl/mkpdf.yml /usr/local/share/mmdocs-tmpl/mkpdf.yml
 COPY tmpl/overrides/ /usr/local/share/mmdocs-tmpl/overrides/
 
 COPY tmpl/pages/index.md /usr/local/share/mmdocs-tmpl/pages/index.md
+COPY tmpl/pages/pdf.md /usr/local/share/mmdocs-tmpl/pages/pdf.md
 
 #
 # ################

@@ -3,7 +3,7 @@ services:
     mkdocs:
       image: registry.ans.co.at/docker/mkdocs/mkdocs:latest
       restart: 'no'
-      #pull_policy: 'always'
+      pull_policy: 'always'
       network_mode: 'host'
       logging:
         driver: 'journald'
@@ -15,7 +15,7 @@ services:
     mmdocs:
       image: registry.ans.co.at/templates/mmdocs/mmdocs:latest
       restart: 'no'
-      #pull_policy: 'always'
+      pull_policy: 'missing'
       logging:
         driver: 'journald'
       volumes:

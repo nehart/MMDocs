@@ -29,6 +29,8 @@ then
   cp -r /usr/local/share/mmdocs-tmpl/* .
   echo "[INFO] template installed."
 
+  exit 0
+
 fi
 
 
@@ -36,7 +38,8 @@ fi
 if [[ "$1" == 'clean' ]]
 then
 
-  find . ! -name 'compose.yml' -type f -exec rm -f {} +
+  find ./ ! -name 'compose.yml' ! -name '.' -exec rm -rf {} +
+  exit 0
 
 fi
 
