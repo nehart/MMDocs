@@ -32,13 +32,16 @@ git switch fix_issue_122
 git push --set-upstream origin fix_issue_122
 ```
 
-## Development (Docker Image)
+## Development (Template)
 
 ...TBC...
 
-```text
-[...]
-```
+| Path              | Description                                                                           |
+|:------------------|:--------------------------------------------------------------------------------------|
+| `./tmpl`          | This folder contains all the materials necessary for the MkDocs project.              |             
+| `./dockerfile`    | This file contains the build instructions for creating the Docker image.              |
+| `./entrypoint.sh` | This file serves as a starting point for the Docker container when it is initialized. |
+
 
 Following the completion of the development process, it is imperative to conduct a localised testing of the Docker image.
 
@@ -82,17 +85,6 @@ docker compose run --rm mmdocs clean
 cd ..
 ```
 
-<!--
-## Directory Structure
-
-The `build` directory has the following structure.
-
-| File / Folder   | Description                                                                                                                                                                                              |
-|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `./mkbase.yml`  | This file contains fundamental configuration for MkDocs and should never be used as the primary configuration file. Instead, it is designed to be included in the `mkdocs.yml` configuration file.       |
-| `./mkdocs.yml`  | This file inherits the `./mkbase.yml` file and extends it with site-specific WWW configuration for MkDocs. It should be used as the primary configuration file.                                          |
-| `./mkpdf.yml`   | This file inherits the `./mkdocs.yml` file and extends it with site-specific PDF configuration for MkDocs. It should be used if PDF creation is not feasible with the `./mkdocs.yml` configuration file. |
-
 ## Pushing the Changes
 
 After completing your changes, you can push them to the current branch.
@@ -123,14 +115,12 @@ Once the development process is finished, the development branch must be merged 
 
 ## Tags and Releases
 
-After merging a development branch into the main branch, a new tag must be created. Tags should follow the format `TMPL-B{BUILD_DATE}` (for example TMPL-B2024012100). Tags are also used to trigger a CI/CD pipeline via the `.gitlab-ci.yml` file. Once a new tag is created, the pipeline starts and generates the template tarball in the package registry as well as on the pages, along with a new release.
+After merging a development branch into the main branch, a new tag associated with the version number must be created. Tags should follow the format `V{MAJOR_VERSION}.{MINOR_VERSION}.{PATCH_VERSION}-B{BUILD_DATE}` (for example V1.3.1-B2024012100). Tags are also used to trigger a CI/CD pipeline via the `.gitlab-ci.yml` file. Once a new tag is created, the pipeline starts and generates the docker image in the container registry, along with a new release.
 
 ```text
-git tag -a TMPL-B2023122600 -m ""
+git tag -a V1.3.1-B2024012100 -m ""
 ```
 
 ```text
 git push --tags
 ```
-
--->
