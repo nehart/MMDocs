@@ -55,11 +55,11 @@ docker compose run --rm mmdocs sh
 ```
 
 ```text
-docker compose run --rm mkdocs serve --config-file mkdev.yml
+docker compose run --rm mkdocs serve
 ```
 
 ```text
-docker compose run --rm mkdocs build --config-file mkdev.yml
+docker compose run --rm mkdocs build
 ```
 
 <!--
