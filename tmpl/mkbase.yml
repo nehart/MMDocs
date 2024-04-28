@@ -1,8 +1,6 @@
+site_author: '<EDITME>'
 site_name: '<EDITME>'
 site_url: 'https://<EDITME>'
-
-
-site_author: '<EDITME>'
 
 
 docs_dir: 'pages'
@@ -11,8 +9,8 @@ site_dir: 'public'
 
 theme:
   name: 'material'
-  logo: 'assets/images/logo.svg'
-  favicon: 'assets/images/favicon.png'
+  logo: './logo.svg'
+  favicon: './favicon.png'
   features:
     - 'navigation.sections'
   palette:

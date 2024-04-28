@@ -32,6 +32,8 @@ COPY tmpl/overrides_mkdocs_material/ /usr/local/lib/python3.12/site-packages/mat
 
 COPY tmpl/pages/index.md /usr/local/share/mmdocs-tmpl/pages/index.md
 COPY tmpl/pages/cover.png /usr/local/share/mmdocs-tmpl/pages/cover.png
+COPY tmpl/pages/favicon.png /usr/local/share/mmdocs-tmpl/pages/favicon.png
+COPY tmpl/pages/logo.svg /usr/local/share/mmdocs-tmpl/pages/logo.svg
 
 COPY tmpl/overrides_pdf/cover.scss /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/styles/cover.scss
 COPY tmpl/overrides_pdf/fonts.scss /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/styles/_fonts.scss
