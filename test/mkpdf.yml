@@ -5,7 +5,7 @@ plugins:
       opening_tag: "{!"
       closing_tag: "!}"
   - with-pdf:
-      #custom_template_path: './'
+      custom_template_path: './'
       output_path: '../pdf/document.pdf'
       render_js: true
       headless_chrome_path: 'chromium'

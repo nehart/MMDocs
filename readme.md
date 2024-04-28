@@ -179,15 +179,15 @@ docker compose run --rm mmdocs init
 ```
 
 ```text
-docker compose run --rm mkdocs serve --config-file mkdocs.yml
+docker compose run --rm mmdocs serve --config-file mkdocs.yml
 ```
 
 ```text
-docker compose run --rm mkdocs build --config-file mkdocs.yml
+docker compose run --rm mmdocs build --config-file mkdocs.yml
 ```
 
 ```text
-docker compose run --rm mkdocs build --config-file mkpdf.yml
+docker compose run --rm mmdocs build --config-file mkpdf.yml
 ```
 
 ```text

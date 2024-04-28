@@ -1,21 +1,10 @@
 services:
 
-    mkdocs:
-      image: registry.ans.co.at/docker/mkdocs/mkdocs:latest
-      restart: 'no'
-      pull_policy: 'always'
-      network_mode: 'host'
-      logging:
-        driver: 'journald'
-      volumes:
-        - './:/mnt'
-        - '/etc/timezone:/etc/timezone:ro'
-        - '/etc/localtime:/etc/localtime:ro'
-
     mmdocs:
       image: registry.ans.co.at/templates/mmdocs/mmdocs:latest
       restart: 'no'
       pull_policy: 'missing'
+      network_mode: 'host'
       logging:
         driver: 'journald'
       volumes:

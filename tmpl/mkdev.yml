@@ -4,6 +4,7 @@ INHERIT: './mkdocs.yml'
 theme:
   logo: 'assets/images/logo.svg'
   favicon: 'assets/images/favicon.png'
+  custom_dir: 'overrides/html'
 
 
 site_name: 'Lorem Ipsum'
