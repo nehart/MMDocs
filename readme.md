@@ -183,10 +183,6 @@ docker compose run --rm mmdocs sh
 ```
 
 ```text
-docker compose run --rm mmdocs init
-```
-
-```text
 docker compose run --rm mmdocs serve --config-file mkdocs.yml
 ```
 

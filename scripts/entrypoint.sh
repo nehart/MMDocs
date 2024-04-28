@@ -31,36 +31,24 @@
 
 if [[ "$1" == 'bash' ]]
 then
+
   exec "$@"
+  exit 0
+
 fi
 
 if [[ "$1" == 'sh' ]]
 then
+
   exec "$@"
+  exit 0
+
 fi
 
 #
 # "MKDOCS" CMDs
 # %%%%%%%%%%%%%
 #
-
-if [[ "$1" == 'init' ]]
-then
-
-  if [[ -f "/mnt/mkdocs.yml" ]]
-  then
-    echo "[WARNING] mkdocs.yml already exists."
-    echo "[WARNING] template not installed."
-    exit 1
-  fi
-
-  echo "[INFO] installing template."
-  cp -r /usr/local/share/mmdocs-tmpl/* .
-  echo "[INFO] template installed."
-
-  exit 0
-
-fi
 
 #
 # "MKDOCS" CMDs
@@ -75,6 +63,34 @@ then
 
 fi
 
+#if [[ "$1" == 'init' ]]
+#then
+#
+#  if [[ -f "/mnt/mkdocs.yml" ]]
+#  then
+#    echo "[WARNING] mkdocs.yml already exists."
+#    echo "[WARNING] template not installed."
+#    exit 1
+#  fi
+#
+#  echo "[INFO] installing template."
+#  cp -r /usr/local/share/mmdocs-tmpl/* .
+#  echo "[INFO] template installed."
+#
+#  exit 0
+#
+#fi
+
+if [[ ! -f "/mnt/mkdocs.yml" ]]
+then
+
+  echo "[INFO] no mkdocs project found"
+  echo "[INFO] installing template."
+  cp -r /usr/local/share/mmdocs-tmpl/* .
+  echo "[INFO] template installed.\n\n"
+
+fi
+
 #
 # "MKDOCS" CMDs
 # %%%%%%%%%%%%%
@@ -83,9 +99,9 @@ fi
 if [[ "$1" == 'update' ]]
 then
 
-  echo "[INFO] updating template. (mkdocs.yml)"
+  echo "[INFO] replacing file mkdocs.yml"
   cp -r /usr/local/share/mmdocs-tmpl/mkdocs.yml .
-  echo "[INFO] template updated."
+  echo "[INFO] project updated."
 
   exit 0
 
