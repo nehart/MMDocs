@@ -21,4 +21,4 @@ plugins:
       verbose: false
 
 nav:
-  - 'Introduction': './pdf.md'
+  - 'Introduction': './index.md'

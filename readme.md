@@ -150,6 +150,10 @@ docker compose run --rm mmdocs serve --config-file "mkdev.yml"
 docker compose run --rm mmdocs build --config-file "mkdev.yml"
 ```
 
+```text
+cd ..
+```
+
 ## Development (Image)
 
 It is important to consider the following files and folders when developing the template.
