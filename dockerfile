@@ -39,6 +39,16 @@ COPY tmpl/overrides/* /usr/local/lib/python3.12/site-packages/material/templates
 COPY tmpl/pages/index.md /usr/local/share/mmdocs-tmpl/pages/index.md
 COPY tmpl/pages/pdf.md /usr/local/share/mmdocs-tmpl/pages/pdf.md
 
+COPY tmpl/overrides_pdf/cover.scss /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/styles/cover.scss
+COPY tmpl/overrides_pdf/_fonts.scss /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/styles/_fonts.scss
+COPY tmpl/overrides_pdf/heading.scss /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/styles/_heading.scss
+COPY tmpl/overrides_pdf/paging.scss /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/styles/_paging.scss
+COPY tmpl/overrides_pdf/toc.scss /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/styles/_toc.scss
+
+COPY tmpl/overrides_pdf/cover.html.j2 /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/templates/default_cover.html.j2
+COPY tmpl/overrides_pdf/back_cover.html.j2 /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/templates/default_back_cover.html.j2
+
+
 #
 # ################
 # ENTRYPOINT & CMD

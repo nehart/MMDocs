@@ -1,0 +1,76 @@
+site_name: '<EDITME>'
+site_url: 'https://<EDITME>'
+
+
+site_author: '<EDITME>'
+
+
+docs_dir: 'pages'
+site_dir: 'public'
+
+
+theme:
+  name: 'material'
+  logo: 'assets/images/logo.svg'
+  favicon: 'assets/images/favicon.png'
+  features:
+    - 'navigation.sections'
+  palette:
+    - scheme: 'default'
+      primary: 'blue'
+      accent: 'green'
+      toggle:
+        icon: 'material/brightness-7'
+        name: 'Dark Mode'
+    - scheme: 'slate'
+      primary: 'brown'
+      accent: 'green'
+      toggle:
+        icon: 'material/brightness-4'
+        name: 'Light Mode'
+
+
+plugins:
+  - include-markdown:
+      opening_tag: "{!"
+      closing_tag: "!}"
+
+
+nav:
+  - 'Introduction': './index.md'
+
+
+extra:
+  generator: false
+
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.keys
+  - pymdownx.blocks.admonition
+  - pymdownx.blocks.details
+  - pymdownx.blocks.html
+  - pymdownx.blocks.tab
+  - tables
+  - meta
+  - pymdownx.tasklist:
+      clickable_checkbox: false
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - markdown_katex:
+      no_inline_svg: False
+      insert_fonts_css: True
+  - pymdownx.arithmatex:
+      generic: true
+  - plantuml_markdown:
+      server: 'https://puml.ans.or.at'

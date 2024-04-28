@@ -1,3 +1,5 @@
+/*
+
 @page {
 
     size: a4 portrait;
@@ -53,6 +55,8 @@
 }
 
 /*
+
+/*
 #
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # ADJUST VERTICAL SPACING ON LISTS
@@ -60,6 +64,7 @@
 #
 */
 
+/*
 @media print {
 
   .md-typeset ol li, .md-typeset ul li {
@@ -69,7 +74,18 @@
 }
 
 /*
+
+/*
 .md-content__inner {
     margin-bottom: 0mm;
 }
 */
+
+@import "cover.scss";
+
+@import "paging.scss";
+@import "heading.scss";
+
+@import "toc.scss";
+
+@import "fonts.scss";

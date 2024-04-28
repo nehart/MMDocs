@@ -11,6 +11,7 @@ site_url: 'https://lorem-ipsum.net'
 
 
 site_author: 'John Doe'
+copyright: 'Written by <br> &ensp;John DOE (john@doe.net)'
 
 
 nav:

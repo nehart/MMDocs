@@ -92,7 +92,7 @@ cd tmpl
 ```
 
 ```text
-docker compose run --rm mkdocs serve --config-file "mkdev.yml" --watch "./overrides/"
+docker compose run --rm mkdocs serve --config-file "mkdev.yml" --watch "mkdocs.yml" --watch "mkdev.yml" --watch "mkbase.yml" --watch "./overrides_mkdocs_material/"
 ```
 
 This will provide a test site available on `http://127.0.0.1:8000/` that can be viewed with a browser.
