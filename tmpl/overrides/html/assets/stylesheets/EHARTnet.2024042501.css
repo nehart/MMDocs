@@ -271,3 +271,17 @@ SPACING FROM THE LEFT SIDE TO THE CONTENT FRAME
       margin-bottom: -1em;
     }
   }
+
+/*
+#
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# ADJUST VERTICAL SPACING ON LISTS
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#
+*/
+
+@media screen {
+  .md-typeset ol li, .md-typeset ul li {
+    margin-bottom: 0em;
+  }
+}
