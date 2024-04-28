@@ -28,7 +28,7 @@ COPY tmpl/mkbase.yml /usr/local/share/mmdocs-tmpl/mkbase.yml
 COPY tmpl/mkdocs.yml /usr/local/share/mmdocs-tmpl/mkdocs.yml
 COPY tmpl/mkpdf.yml /usr/local/share/mmdocs-tmpl/mkpdf.yml
 
-COPY tmpl/styles.scss /usr/local/share/mmdocs-tmpl/styles.scss
+COPY tmpl/styles.scss styles.scss
 COPY tmpl/cover.html.j2 /usr/local/share/mmdocs-tmpl/cover.html.j2
 COPY tmpl/back_cover.html.j2 /usr/local/share/mmdocs-tmpl/back_cover.html.j2
 COPY tmpl/cover.png /usr/local/share/mmdocs-tmpl/cover.png
