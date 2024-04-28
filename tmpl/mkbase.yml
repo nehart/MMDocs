@@ -1,6 +1,6 @@
-site_author: '<EDITME>'
-site_name: '<EDITME>'
-site_url: 'https://<EDITME>'
+site_author: 'John Doe (lorem@ipsum.net)'
+site_name: 'Lorem Ipsum'
+site_url: 'https://lorem.ipsum.net'
 
 
 docs_dir: 'pages'

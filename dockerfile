@@ -7,7 +7,7 @@ FROM registry.ans.co.at/docker/mkdocs/mkdocs:latest
 #
 
 ENV MMDOCS_VERSION='V0.1.1'
-ENV MMDOCS_BUILD_DATE='B2024042800'
+ENV MMDOCS_BUILD_DATE='B2024042900'
 ENV MMDOCS_IMAGE_MAINTAINER='Norbert EHART (norbert@ehart.net)'
 
 #
@@ -43,7 +43,6 @@ COPY tmpl/overrides_pdf/toc.scss /usr/local/lib/python3.12/site-packages/mkdocs_
 
 COPY tmpl/overrides_pdf/cover.html.j2 /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/templates/default_cover.html.j2
 COPY tmpl/overrides_pdf/back_cover.html.j2 /usr/local/lib/python3.12/site-packages/mkdocs_with_pdf/templates/default_back_cover.html.j2
-
 
 #
 # ################
