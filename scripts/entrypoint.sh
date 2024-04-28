@@ -75,4 +75,20 @@ then
 
 fi
 
+#
+# "MKDOCS" CMDs
+# %%%%%%%%%%%%%
+#
+
+if [[ "$1" == 'update' ]]
+then
+
+  echo "[INFO] updating template. (mkdocs.yml)"
+  cp -r /usr/local/share/mmdocs-tmpl/mkdocs.yml .
+  echo "[INFO] template updated."
+
+  exit 0
+
+fi
+
 exec "mkdocs" "$@"
