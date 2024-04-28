@@ -5,11 +5,9 @@ plugins:
       opening_tag: "{!"
       closing_tag: "!}"
   - with-pdf:
-      custom_template_path: 'overrides_pdf'
-      output_path: '../pdf/document.pdf'
+      output_path: '../document.pdf'
       render_js: true
       headless_chrome_path: 'chromium'
-      author: 'John DOE'
       cover: true
       cover_logo: './cover.png'
       cover_title: 'Lorem Ipsum'

@@ -143,7 +143,11 @@ If you want to add some CSS files into the theme without specifieng them into `m
 TBC...........
 
 ```text
-docker compose run --rm mkdocs build --config-file "mkpdf.yml"
+docker compose run --rm mmdocs serve --config-file "mkdev.yml"
+```
+
+```text
+docker compose run --rm mmdocs build --config-file "mkdev.yml"
 ```
 
 ## Development (Image)
