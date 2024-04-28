@@ -83,7 +83,70 @@ git switch fix_issue_122
 git push --set-upstream origin fix_issue_122
 ```
 
-## Development
+## Development (Theme)
+
+The development server can be started with the following command.
+
+```text
+cd tmpl
+```
+
+```text
+docker compose run --rm mkdocs serve --config-file "mkdev.yml" --watch "./overrides/"
+```
+
+This will provide a test site available on `http://127.0.0.1:8000/` that can be viewed with a browser.
+
+If you want to alter the HTML source (e.g. add or remove some parts), you can extend the theme. Enable Material for MkDocs as usual in `mkdocs.yml`, and create a new folder for overrides which you then reference using the custom_dir setting:
+
+```text
+theme:
+  name: 'material'
+  custom_dir: 'overrides/html'
+```
+
+The structure in the 'overrides/html' directory must mirror the directory structure of the original theme, as any file in the 'overrides/html' directory will replace the file with the same name which is part of the original theme. Besides, further assets may also be put in the 'overrides/html' directory. The original theme is present in the `defauls/html` folder and is used by jinja2 to render then the final HTML files.
+
+For example, if you want to add some CSS files into the theme without specifieng them into `mkdocs.yml` you have to create a `main.html` file inside the `overrides/html` directory and then override the `styles` block. If you want still using the original block content and just add somethin before or after... you can use the `{{ super() }}` directive.
+
+```text
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/katex/dist/katex.css' | url }}" />
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/EHARTnet.2024042501.css' | url }}" />
+{% endblock %}
+```
+
+If you want to add some CSS files into the theme without specifieng them into `mkdocs.yml` you have to create a `main.html` file inside the `overrides/html` directory and then override the `scripts` block.
+
+```text
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/katex/dist/katex.css' | url }}" />
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/EHARTnet.2024042501.css' | url }}" />
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ 'assets/katex/dist/katex.js' | url }}"></script>
+  <script src="{{ 'assets/katex/dist/contrib/auto-render.js' | url }}"></script>
+  <script src="{{ 'assets/mathjax-3/es5/tex-mml-chtml.js' | url }}"></script>
+  <script src="{{ 'assets/javascripts/custom.2292dd96.min.js' | url }}"></script>
+  {{ super() }}
+  <script src="{{ 'assets/javascripts/ContentHeight.js' | url }}"></script>
+{% endblock %}
+```
+
+TBC...........
+
+```text
+docker compose run --rm mkdocs build --config-file "mkpdf.yml"
+```
+
+## Development (Image)
 
 It is important to consider the following files and folders when developing the template.
 

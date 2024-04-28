@@ -3,7 +3,6 @@ site_url: 'https://<EDITME>'
 
 
 site_author: '<EDITME>'
-copyright: 'Written by <br> &ensp;<EDITME> (<EDITME>@<EDITME>)'
 
 
 docs_dir: 'pages'
@@ -76,16 +75,3 @@ markdown_extensions:
       generic: true
   - plantuml_markdown:
       server: 'https://puml.ans.or.at'
-      priority: 1
-
-
-extra_css:
-  - assets/katex/dist/katex.css
-  - assets/stylesheets/EHARTnet.2024042501.css
-
-extra_javascript:
-  - assets/katex/dist/katex.js
-  - assets/katex/dist/contrib/auto-render.js
-  - assets/mathjax-3/es5/tex-mml-chtml.js
-  - assets/javascripts/custom.2292dd96.min.js
-  - assets/javascripts/ContentHeight.js

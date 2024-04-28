@@ -10,8 +10,7 @@ site_name: 'Lorem Ipsum'
 site_url: 'https://lorem-ipsum.net'
 
 
-site_author: 'John Doe'
-copyright: 'Written by <br> &ensp;John Doe (john@doe.net)'
+site_author: 'John Doe (john@doe.net)'
 
 
 nav:
