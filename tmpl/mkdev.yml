@@ -37,6 +37,7 @@ plugins:
 nav:
   - 'Introduction': './index.md'
   - 'Icons & Emojis': './example/IconsEmojis.md'
+  - 'Search Icons': './example/SearchIcons.md'
   - 'Mathematics': './example/Mathematics.md'
   - 'Introduction to Firewalls':
     - 'Introduction': './example/IntroFirewallsIntro.md'
