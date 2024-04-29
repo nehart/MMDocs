@@ -101,8 +101,8 @@ fi
 if [[ "$1" == 'update' ]]
 then
 
-  echo "[INFO] replacing file mkdocs.yml"
-  cp -r /usr/local/share/mmdocs-tmpl/mkdocs.yml .
+  echo "[INFO] replacing file mkbase.yml"
+  cp -r /usr/local/share/mmdocs-tmpl/mkbase.yml .
   echo "[INFO] project updated."
 
   exit 0
