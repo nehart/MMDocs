@@ -46,13 +46,8 @@ then
 fi
 
 #
-# "MKDOCS" CMDs
-# %%%%%%%%%%%%%
-#
-
-#
-# "MKDOCS" CMDs
-# %%%%%%%%%%%%%
+# "MMDOCS" CLEANUP
+# %%%%%%%%%%%%%%%%
 #
 
 if [[ "$1" == 'clean' ]]
@@ -63,23 +58,10 @@ then
 
 fi
 
-#if [[ "$1" == 'init' ]]
-#then
 #
-#  if [[ -f "/mnt/mkdocs.yml" ]]
-#  then
-#    echo "[WARNING] mkdocs.yml already exists."
-#    echo "[WARNING] template not installed."
-#    exit 1
-#  fi
+# "MMDOCS" CREATE A PROJECT IF NO ONE EXISTS
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #
-#  echo "[INFO] installing template."
-#  cp -r /usr/local/share/mmdocs-tmpl/* .
-#  echo "[INFO] template installed."
-#
-#  exit 0
-#
-#fi
 
 if [[ ! -f "/mnt/mkdocs.yml" ]]
 then
@@ -94,8 +76,8 @@ then
 fi
 
 #
-# "MKDOCS" CMDs
-# %%%%%%%%%%%%%
+# "MMDOCS" UPDATE A PROJECT
+# %%%%%%%%%%%%%%%%%%%%%%%%%
 #
 
 if [[ "$1" == 'update' ]]
@@ -108,5 +90,10 @@ then
   exit 0
 
 fi
+
+#
+# "MMDOCS" DEFAULT COMMAND
+# %%%%%%%%%%%%%%%%%%%%%%%%
+#
 
 exec "mkdocs" "$@"

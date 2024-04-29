@@ -102,12 +102,12 @@ If you want to alter the HTML source (e.g. add or remove some parts), you can ex
 ```text
 theme:
   name: 'material'
-  custom_dir: 'overrides/html'
+  custom_dir: 'overrides_mkdocs_material'
 ```
 
-The structure in the 'overrides/html' directory must mirror the directory structure of the original theme, as any file in the 'overrides/html' directory will replace the file with the same name which is part of the original theme. Besides, further assets may also be put in the 'overrides/html' directory. The original theme is present in the `defauls/html` folder and is used by jinja2 to render then the final HTML files.
+The structure in the `overrides_mkdocs_material` directory must mirror the directory structure of the original theme, as any file in the `overrides_mkdocs_material` directory will replace the file with the same name which is part of the original theme. Besides, further assets may also be put in the `overrides_mkdocs_material` directory. The original theme is present in the `defaults_mkdocs_material` folder and is used by jinja2 to render then the final HTML files.
 
-For example, if you want to add some CSS files into the theme without specifieng them into `mkdocs.yml` you have to create a `main.html` file inside the `overrides/html` directory and then override the `styles` block. If you want still using the original block content and just add somethin before or after... you can use the `{{ super() }}` directive.
+For example, if you want to add some CSS files into the theme without specifieng them into `mkdocs.yml` you have to create a `main.html` file inside the `overrides_mkdocs_material` directory and then override the `styles` block. If you want still using the original block content and just add somethin before or after... you can use the `{{ super() }}` directive.
 
 ```text
 {% extends "base.html" %}
@@ -119,7 +119,7 @@ For example, if you want to add some CSS files into the theme without specifieng
 {% endblock %}
 ```
 
-If you want to add some CSS files into the theme without specifieng them into `mkdocs.yml` you have to create a `main.html` file inside the `overrides/html` directory and then override the `scripts` block.
+If you want to add some JavaScript files into the theme without specifieng them into `mkdocs.yml` you have to create a `main.html` file inside the `overrides/html` directory and then override the `scripts` block.
 
 ```text
 {% extends "base.html" %}
