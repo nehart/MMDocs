@@ -6,8 +6,8 @@ FROM registry.ans.co.at/docker/mkdocs/mkdocs:latest
 # #################
 #
 
-ENV MMDOCS_VERSION='V0.1.3'
-ENV MMDOCS_BUILD_DATE='B2024042902'
+ENV MMDOCS_VERSION='V0.2.3'
+ENV MMDOCS_BUILD_DATE='B2024050200'
 ENV MMDOCS_IMAGE_MAINTAINER='Norbert EHART (norbert@ehart.net)'
 
 #
