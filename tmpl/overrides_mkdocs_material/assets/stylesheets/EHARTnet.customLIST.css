@@ -1,0 +1,13 @@
+/*
+#
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# ADJUST VERTICAL SPACING ON LISTS
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#
+*/
+
+@media screen {
+    .md-typeset ol li, .md-typeset ul li {
+        margin-bottom: 0em;
+    }
+}

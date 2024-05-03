@@ -1,0 +1,15 @@
+/*
+SPACING FROM THE RIGHT SIDE TO THE CONTENT FRAME
+*/
+
+[dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content>.md-content__inner, [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content>.md-content__inner {
+    margin-right: 5.3mm
+}
+
+/*
+SPACING FROM THE LEFT SIDE TO THE CONTENT FRAME
+*/
+
+[dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content>.md-content__inner, [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content>.md-content__inner {
+    margin-left: 5.3mm
+}

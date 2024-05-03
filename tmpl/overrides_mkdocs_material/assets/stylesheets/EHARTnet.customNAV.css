@@ -1,0 +1,94 @@
+/* 
+# ##########################################################################################
+# REMOVE MARGIN AROUND NAVIGATION (IF NOT -> DIFFERENT COLOR IS NOT FILLED OUT IN THE FRAME)
+# ##########################################################################################
+*/
+
+@media screen {
+
+    .md-sidebar__scrollwrap {
+        margin-top: 0rem;
+        margin-right: 0rem;
+        margin-bottom: 0rem;
+        margin-left: 0rem;
+    }
+
+    .md-sidebar {
+        padding: 0mm;
+    }
+
+}
+
+/*
+# ################
+# NAVIGATION WIDTH 
+# ################
+*/
+
+@media screen {
+    .md-sidebar {
+        min-width: 100mm;
+    }
+}
+
+/*
+# ######################
+# NAVIGATION TOP SPACING
+# ######################
+*/
+
+@supports selector(::-webkit-scrollbar) {
+    [dir=ltr] .md-sidebar__inner {
+        padding-top: 5mm;
+    }
+}
+
+/*
+#
+# ##################################
+# NAVIGATION LEFT SPACING (SECTIONS)
+# ##################################
+#
+*/
+
+@media screen and (min-width: 76.25em) {
+    [dir=ltr] .md-nav--primary .md-nav__list {
+        padding-left: .75rem;
+    }
+}
+
+/*
+#
+# ####################################
+# NAVIGATION LEFT SPACING (SUBSECTION)
+# ####################################
+#
+*/
+
+@media screen {
+    [dir=ltr] .md-nav__item--section>.md-nav {
+        margin-left: 0mm;
+    }
+}
+
+/*
+# ################
+# NAVIGATION COLOR
+# ################
+*/
+
+@media screen {
+
+    .md-sidebar {
+        background: var(--md-EHARTnet-NAV);
+    }
+
+    .md-sidebar__scrollwrap {
+        background: var(--md-EHARTnet-NAV);
+    }
+
+    .md-sidebar__inner {
+        background: var(--md-EHARTnet-NAV);
+    }
+
+}

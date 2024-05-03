@@ -1,0 +1,45 @@
+/*
+#
+# #########################
+# SEARCHBOX (ICONS & EMOJI)
+# #########################
+#
+*/
+
+@media screen {
+
+    .md-typeset .mdx-iconsearch {
+      background-color: var(--md-default-bg-color);
+      border-radius: .1rem;
+      box-shadow: var(--md-shadow-z1);
+      position: relative;
+      transition: box-shadow 125ms;
+      margin-bottom: 2rem;
+      margin-top: 4mm;
+    }
+  
+    .md-typeset .mdx-iconsearch-result {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      max-height: 50vh;
+      overflow-y: auto;
+      scrollbar-color: var(--md-default-fg-color--lighter) #0000;
+      scrollbar-width: thin;
+      touch-action: pan-y;
+    }
+  
+    .md-typeset .mdx-iconsearch-result__meta {
+      color: var(--md-default-fg-color--lighter);
+      font-size: .64rem;
+      position: absolute;
+      right: .6rem;
+      top: .4rem;
+    }
+  
+    .md-typeset .mdx-iconsearch-result__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+}

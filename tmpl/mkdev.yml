@@ -16,22 +16,22 @@ plugins:
   - include-markdown:
       opening_tag: "{!"
       closing_tag: "!}"
-  - with-pdf:
-      custom_template_path: 'overrides_pdf'
-      output_path: '../document.pdf'
-      render_js: true
-      headless_chrome_path: 'chromium'
-      cover: true
-      cover_logo: './cover.png'
-      cover_title: 'Lorem Ipsum'
-      cover_subtitle: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...'
-      back_cover: true
-      toc_title: 'Table of Contents'
-      toc_level: 1
-      ordered_chapter_level: 3
-      debug_html: false
-      show_anchors: false
-      verbose: false
+  # - with-pdf:
+  #     custom_template_path: 'overrides_pdf'
+  #     output_path: '../document.pdf'
+  #     render_js: true
+  #     headless_chrome_path: 'chromium'
+  #     cover: true
+  #     cover_logo: './cover.png'
+  #     cover_title: 'Lorem Ipsum'
+  #     cover_subtitle: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...'
+  #     back_cover: true
+  #     toc_title: 'Table of Contents'
+  #     toc_level: 1
+  #     ordered_chapter_level: 3
+  #     debug_html: false
+  #     show_anchors: false
+  #     verbose: false
 
 
 nav:
@@ -71,3 +71,4 @@ nav:
     - 'EXAMPLES': './example/RADIUS007Exa.md'
   - 'Grids': './example/Grids.md'
   - 'Images': './example/IMG002.md'
+  - 'Formatting': './example/Formatting.md'
