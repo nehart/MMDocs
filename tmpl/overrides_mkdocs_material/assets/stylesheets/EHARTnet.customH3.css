@@ -1,0 +1,12 @@
+/* HEADING (Level - H3) */
+
+@media screen {
+    .md-typeset h3 {
+        font-size: 1.15em;
+        font-weight: bold;
+        letter-spacing: -.01em;
+        line-height: 1.5;
+        margin: 5mm 0 -5mm 0;
+    }
+}
+  

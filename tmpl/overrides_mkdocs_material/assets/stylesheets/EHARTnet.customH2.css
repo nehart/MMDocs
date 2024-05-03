@@ -1,0 +1,21 @@
+/* HEADING (Level - H2) */
+
+@media screen {
+
+    .md-typeset h2 {
+        font-size: 1.5625em;
+        font-weight: bold;
+        line-height: 1.4;
+        margin: 10mm 0 -12mm 0;
+    }
+  
+    .md-typeset h2::after {
+        display: inline-block;
+        content: "";
+        position: relative;
+        border-top: .1rem solid black;
+        width: 100%;
+        transform: translateY(-1rem);
+    }
+    
+}

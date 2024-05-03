@@ -1,0 +1,13 @@
+/* COLOR OF MD-CONTENT */
+
+@media screen {
+
+    [data-md-color-scheme=slate][data-md-color-primary=brown] {
+      --md-EHARTnet-NAV: #343131;
+    }
+    
+    [data-md-color-scheme=default][data-md-color-primary=blue] {
+      --md-EHARTnet-NAV: #d6c2c2;
+    }
+  
+}

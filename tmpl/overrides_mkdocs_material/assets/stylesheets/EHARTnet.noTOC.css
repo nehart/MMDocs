@@ -1,0 +1,13 @@
+/*
+#
+# ################################
+# REMOVE THE TOC ON THE RIGHT SIDE
+# ################################
+#
+*/
+
+@media screen {
+  .md-sidebar--secondary:not([hidden]) {
+    display: none;
+  }
+}

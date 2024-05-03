@@ -1,0 +1,9 @@
+/* USE FULL BROWSER WIDTH */
+
+@media screen {
+    .md-grid {
+        margin-left: 0mm;
+        margin-right: 0mm;
+        max-width: 100%;
+    }
+}

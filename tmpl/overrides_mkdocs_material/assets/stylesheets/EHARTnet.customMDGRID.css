@@ -1,0 +1,19 @@
+/*
+#
+# #################################
+# NO PADDING ON THE TOP OF THE CONTENT SITE
+# #################################
+#
+*/
+
+@media screen {
+
+    .md-main__inner {
+      margin-top: 0mm;
+    }
+    
+    .md-content__inner:before {
+      height: 2.6mm;
+    }
+    
+}
