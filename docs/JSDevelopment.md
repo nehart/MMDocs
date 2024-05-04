@@ -1,6 +1,6 @@
-# CSS Development Tutorial
+# JavaScript Development Tutorial
 
-This tutorial is designed for those who wish to contribute to the `MMDocs` image development, with a particular focus on the CSS components.
+This tutorial is designed for those who wish to contribute to the `MMDocs` image development, with a particular focus on the JavaScript components.
 
 Norbert EHART (norbert@ehart.net) created this tutorial in 2024 and it is licensed under the CC-BY license.
 
@@ -63,40 +63,36 @@ theme:
 
 The structure of the `overrides_mkdocs_material` directory must mirror exactly the directory structure of the original theme. Any file in the `overrides_mkdocs_material` directory will replace the file with the same name that is part of the original theme. Furthermore, additional assets may also be placed in the `overrides_mkdocs_material` directory. The original theme files are available for reference in the `../src/mkdocs_material` folder.
 
-The CSS files are located in the directory `./overrides_mkdocs_material/assets/stylesheets/`, and they are organized into distinct categories based on their functionalities. The following list provides some examples.
+The JavaScript files are located in the directory `./overrides_mkdocs_material/assets/javascripts/`.
 
 ```text
 [...]
 
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customCOLORS.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customFULLBROWSERWIDTH.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customMDCONTENT.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customNAV.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.noTOC.css
+./overrides_mkdocs_material/assets/javascripts/bundle.3220b9d7.min.js
+./overrides_mkdocs_material/assets/javascripts/custom.2292dd96.min.js
 
 [...]
 ```
 
-In the event that it becomes necessary to introduce some new CSS files to the theme without specifying them in the `mkdocs.yml` configuration file, it is necessary to create the `main.html` file within the `overrides_mkdocs_material` directory and then override the `styles` block. If the intention is to use the original block content while simply adding CSS files before or after, it is possible to use the `{{ super() }}` directive. This provides users with the option of using their own CSS files in addition with the `extra_css` option in the `mkdocs.yml` configuration file. This should also already be in place. The only remaining step is to insert the lines that have been idenitfied as being necessary.
+In the event that it becomes necessary to introduce some new JS files to the theme without specifying them in the `mkdocs.yml` configuration file, it is necessary to create the `main.html` file within the `overrides_mkdocs_material` directory and then override the `scripts` block. If the intention is to use the original block content while simply adding JS files before or after, it is possible to use the `{{ super() }}` directive. This provides users with the option of using their own CSS files in addition with the `extra_javascript` option in the `mkdocs.yml` configuration file. This should also already be in place. The only remaining step is to insert the lines that have been idenitfied as being necessary.
 
 ```text
 {% extends "base.html" %}
 
 [...]
 
-{% block styles %}
-  [...]
+{% block scripts %}
+  <script src="{{ 'assets/katex/dist/katex.js' | url }}"></script>
+  <script src="{{ 'assets/katex/dist/contrib/auto-render.js' | url }}"></script>
+  <script src="{{ 'assets/mathjax-3/es5/tex-mml-chtml.js' | url }}"></script>
   {{ super() }}
-  <link rel="stylesheet" href="{{ 'assets/katex/dist/katex.css' | url }}" />
-  <link rel="stylesheet" href="{{ 'assets/stylesheets/EHARTnet.customFULLBROWSERWIDTH.css' | url }}" />
-  <link rel="stylesheet" href="{{ 'EHARTnet.customHEADERTEXT.css' | url }}" />
-  [...]
+  <script src="{{ 'assets/javascripts/custom.2292dd96.min.js' | url }}"></script>
 {% endblock %}
 
 [...]
 ```
 
-The process of modifying or inserting additional CSS content may now begin.
+The process of modifying or inserting additional JS content may now begin.
 
 ```text
 [...]
