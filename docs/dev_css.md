@@ -40,15 +40,17 @@ This image uses a template that is available in the directory `tmpl`.
 cd tmpl
 ```
 
-The development server can be started with the following command.
+The development server can be started via the following command.
 
 ```text
 docker compose run --rm mkdocs serve --config-file "mkdev.yml" --watch "mkdocs.yml" --watch "mkdev.yml" --watch "mkbase.yml" --watch "./overrides_mkdocs_material/" --watch "./overrides_pdf/" 
 ```
 
-This will provide a test site available on `http://127.0.0.1:8000/` that can be viewed with a browser.
+This will provide a test site that can be accessed via the URL `http://127.0.0.1:8000/`.
 
-The `MMDocs` image is by default configured to utilize the `material` theme, and it is intended to exclusively use this theme. If you want to alter the HTML source of the `material` theme, you need to override the theme by using the `custom_dir` settings in `mkdev.yml`. This should be already in place.
+By default, the live-reloading feature is enabled, which means that upon the occurrence of a change in the templates, the website will reload automatically and display the updated content immediately.
+
+The `MMDocs` image is configured by default to utilize the `material` theme, which is intended to be exclusively used. If alterations to the HTML source of the `material` theme are desired, the theme must be overridden by using the `custom_dir` settings in the `mkdev.yml` configuration file. This should be already in place.
 
 ```text
 [...]
@@ -59,9 +61,9 @@ theme:
 [...]
 ```
 
-The structure in the `overrides_mkdocs_material` directory must mirror the directory structure of the original theme, as any file in the `overrides_mkdocs_material` directory will replace the file with the same name which is part of the original theme. Besides, further assets may also be put in the `overrides_mkdocs_material` directory. The original theme files are present in the `../src/mkdocs_material` folder.
+The structure of the `overrides_mkdocs_material` directory must mirror exactly the directory structure of the original theme. Any file in the `overrides_mkdocs_material` directory will replace the file with the same name that is part of the original theme. Furthermore, additional assets may also be placed in the `overrides_mkdocs_material` directory. The original theme files are present in the `../src/mkdocs_material` folder.
 
-If you want to add some CSS files into the theme without specifieng them into `mkdocs.yml` you have to create a `main.html` file inside the `overrides_mkdocs_material` directory and then override the `styles` block. If you want still using the original block content and just add somethin before or after... you can use the `{{ super() }}` directive. This gives every user the opertunity to use their own css files in addition with the `extra_css` directive in the `mkdocs.yml`.
+In the event that it becomes necessary to add some CSS files to the theme without specifying them in the `mkdocs.yml` configuration file, it is necessary to create the `main.html` file within the `overrides_mkdocs_material` directory and then override the `styles` block. If the intention is to use the original block content while simply adding CSS files before or after, it is possible to use the `{{ super() }}` directive. This provides users with the option of using their own CSS files in addition with the `extra_css` directive in the `mkdocs.yml` configuration file.
 
 ```text
 {% extends "base.html" %}
@@ -80,7 +82,7 @@ If you want to add some CSS files into the theme without specifieng them into `m
 [...]
 ```
 
-The css files are located in `./overrides_mkdocs_material/assets/stylesheets/` and are splitted based on their function. The Following list shows some examples.
+The CSS files are located in the directory `./overrides_mkdocs_material/assets/stylesheets/`, and they are organized into distinct categories based on their functionalities. The following list provides some examples.
 
 ```text
 [...]
@@ -94,7 +96,7 @@ The css files are located in `./overrides_mkdocs_material/assets/stylesheets/` a
 [...]
 ```
 
-The `../dockerfile` is prepared to replace everthing in the original `material` theme template with the content in `overrides_mkdocs_material`.
+The `../dockerfile` is prepared to replace all content in the original `material` theme template with the content in `overrides_mkdocs_material`. This eliminates the need for users to have the `overrides_mkdocs_material` directory locally present.
 
 ```text
 [...]
@@ -104,7 +106,11 @@ COPY tmpl/overrides_mkdocs_material/ /usr/local/lib/python3.12/site-packages/mat
 [...]
 ```
 
+The process of modifying or inserting additional CSS content may now begin.
 
+```text
+[...]
+```
 
 ## Docker Image Testing
 
@@ -148,26 +154,6 @@ docker compose run --rm mmdocs update
 
 ```text
 docker compose run --rm mmdocs clean
-```
-
-```text
-cd ..
-```
-
-## Documentation
-
-When changes are made, we need to make sure that we document those changes when we release a new version.
-
-```text
-cd changelog
-```
-
-```text
-vi pages/index.md
-```
-
-```text
-docker compose run --rm mkdocs build --config-file mkpdf.yml
 ```
 
 ```text
