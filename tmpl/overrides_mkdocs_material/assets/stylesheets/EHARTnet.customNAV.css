@@ -37,9 +37,21 @@
 # ######################
 */
 
-@supports selector(::-webkit-scrollbar) {
+@media screen {
     [dir=ltr] .md-sidebar__inner {
         padding-top: 5mm;
+    }
+}
+
+/*
+# #########################
+# NAVIGATION BOTTOM SPACING
+# #########################
+*/
+
+@media screen {
+    [dir=ltr] .md-sidebar__inner {
+        padding-bottom: 8.2mm;
     }
 }
 
