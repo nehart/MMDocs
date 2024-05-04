@@ -68,7 +68,7 @@ then
 
   echo "[INFO] no mkdocs project found"
   echo "[INFO] installing template."
-  cp -r /usr/local/share/mmdocs-tmpl/* .
+  cp -r /usr/local/share/mmdocs-tmpl/. ./
   echo "[INFO] template installed."
   echo ""
   echo ""

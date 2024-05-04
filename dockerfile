@@ -6,8 +6,8 @@ FROM registry.ans.co.at/docker/mkdocs/mkdocs:latest
 # #################
 #
 
-ENV MMDOCS_VERSION='V0.3.6'
-ENV MMDOCS_BUILD_DATE='B2024050402'
+ENV MMDOCS_VERSION='V0.3.7'
+ENV MMDOCS_BUILD_DATE='B2024050403'
 ENV MMDOCS_IMAGE_MAINTAINER='Norbert EHART (norbert@ehart.net)'
 
 #
@@ -27,6 +27,7 @@ USER 0:0
 COPY tmpl/mkbase.yml /usr/local/share/mmdocs-tmpl/mkbase.yml
 COPY tmpl/mkdocs.yml /usr/local/share/mmdocs-tmpl/mkdocs.yml
 COPY tmpl/mkpdf.yml /usr/local/share/mmdocs-tmpl/mkpdf.yml
+COPY tmpl/.gitlab-ci.yml /usr/local/share/mmdocs-tmpl/.gitlab-ci.yml
 
 COPY tmpl/overrides_mkdocs_material/ /usr/local/lib/python3.12/site-packages/material/templates/
 
