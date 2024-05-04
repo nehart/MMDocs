@@ -77,4 +77,4 @@ markdown_extensions:
       generic: true
   - plantuml_markdown:
       server: 'https://puml.ans.or.at'
-      priority: 1
+      priority: 100
