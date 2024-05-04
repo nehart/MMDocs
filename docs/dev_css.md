@@ -46,7 +46,7 @@ docker compose run --rm mkdocs serve --config-file "mkdev.yml" --watch "mkdocs.y
 
 This will provide a test site available on `http://127.0.0.1:8000/` that can be viewed with a browser.
 
-If you want to alter the HTML source (e.g. add or remove some parts), you need to extend the theme. Enable Material for MkDocs as usual in `mkdocs.yml`, and create a new folder for overrides which you then reference using the custom_dir setting:
+If you want to alter the HTML source of the `material` theme, you need to extend the theme. Enable Material for MkDocs as usual in `mkdev.yml`, and create a new folder for overrides which you then reference using the custom_dir setting:
 
 ```text
 theme:
@@ -61,13 +61,18 @@ If you want to add some CSS files into the theme without specifieng them into `m
 ```text
 {% extends "base.html" %}
 
+[...]
+
 {% block styles %}
+  [...]
   {{ super() }}
   <link rel="stylesheet" href="{{ 'assets/katex/dist/katex.css' | url }}" />
   <link rel="stylesheet" href="{{ 'assets/stylesheets/EHARTnet.customFULLBROWSERWIDTH.css' | url }}" />
   <link rel="stylesheet" href="{{ 'EHARTnet.customHEADERTEXT.css' | url }}" />
   [...]
 {% endblock %}
+
+[...]
 ```
 
 TBC...........
