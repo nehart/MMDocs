@@ -1,10 +1,12 @@
 # Development of the CSS
 
-This tutorial is designed for those who wish to contribute to the `MMDocs` development, with a particular focus on the CSS component.
+This tutorial is designed for those who wish to contribute to the `MMDocs` image development, with a particular focus on the CSS components.
+
+Norbert EHART (norbert@ehart.net) created this tutorial in 2024 and it is licensed under the CC-BY license.
 
 ## Clone the Repository
 
-In order to work on the template, it is first necessary to clone this repository.
+In order to work on the `MMDocs` image, it is first necessary to clone this repository.
 
 ```text
 git pull git@gitlab.ans.co.at:templates/mmdocs.git
@@ -30,9 +32,9 @@ git switch fix_issue_122
 git push --set-upstream origin fix_issue_122
 ```
 
-## Development
+## CSS Development
 
-The template used by the docker image is available in the directory `tmpl`.
+This image uses a template that is available in the directory `tmpl`.
 
 ```text
 cd tmpl
@@ -46,17 +48,20 @@ docker compose run --rm mkdocs serve --config-file "mkdev.yml" --watch "mkdocs.y
 
 This will provide a test site available on `http://127.0.0.1:8000/` that can be viewed with a browser.
 
-If you want to alter the HTML source of the `material` theme, you need to extend the theme. Enable Material for MkDocs as usual in `mkdev.yml`, and create a new folder for overrides which you then reference using the custom_dir setting:
+The `MMDocs` image is by default configured to utilize the `material` theme, and it is intended to exclusively use this theme. If you want to alter the HTML source of the `material` theme, you need to override the theme by using the `custom_dir` settings in `mkdev.yml`. This should be already in place.
 
 ```text
+[...]
+
 theme:
-  name: 'material'
   custom_dir: 'overrides_mkdocs_material'
+
+[...]
 ```
 
-The structure in the `overrides_mkdocs_material` directory must mirror the directory structure of the original theme, as any file in the `overrides_mkdocs_material` directory will replace the file with the same name which is part of the original theme. Besides, further assets may also be put in the `overrides_mkdocs_material` directory. The original theme is present in the `defaults_mkdocs_material` folder and is used by jinja2 to render then the final HTML files.
+The structure in the `overrides_mkdocs_material` directory must mirror the directory structure of the original theme, as any file in the `overrides_mkdocs_material` directory will replace the file with the same name which is part of the original theme. Besides, further assets may also be put in the `overrides_mkdocs_material` directory. The original theme files are present in the `../src/mkdocs_material` folder.
 
-If you want to add some CSS files into the theme without specifieng them into `mkdocs.yml` you have to create a `main.html` file inside the `overrides_mkdocs_material` directory and then override the `styles` block. If you want still using the original block content and just add somethin before or after... you can use the `{{ super() }}` directive.
+If you want to add some CSS files into the theme without specifieng them into `mkdocs.yml` you have to create a `main.html` file inside the `overrides_mkdocs_material` directory and then override the `styles` block. If you want still using the original block content and just add somethin before or after... you can use the `{{ super() }}` directive. This gives every user the opertunity to use their own css files in addition with the `extra_css` directive in the `mkdocs.yml`.
 
 ```text
 {% extends "base.html" %}
@@ -75,13 +80,21 @@ If you want to add some CSS files into the theme without specifieng them into `m
 [...]
 ```
 
-TBC...........
-
-teh docker file is conf to copy ...
+The css files are located in `./overrides_mkdocs_material/assets/stylesheets/` and are splitted based on their function. The Following list shows some examples.
 
 ```text
-vi ../dockerfile
+[...]
+
+./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customCOLORS.css
+./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customFULLBROWSERWIDTH.css
+./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customMDCONTENT.css
+./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customNAV.css
+./overrides_mkdocs_material/assets/stylesheets/EHARTnet.noTOC.css
+
+[...]
 ```
+
+The `../dockerfile` is prepared to replace everthing in the original `material` theme template with the content in `overrides_mkdocs_material`.
 
 ```text
 [...]
@@ -91,13 +104,15 @@ COPY tmpl/overrides_mkdocs_material/ /usr/local/lib/python3.12/site-packages/mat
 [...]
 ```
 
+
+
+## Docker Image Testing
+
+Following the completion of the development process, it is imperative to conduct a localised testing of the Docker image.
+
 ```text
 cd ..
 ```
-
-## Docker
-
-Following the completion of the development process, it is imperative to conduct a localised testing of the Docker image.
 
 ```text
 docker build --no-cache -f dockerfile -t registry.ans.co.at/templates/mmdocs/mmdocs:latest .
