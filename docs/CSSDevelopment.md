@@ -50,7 +50,7 @@ This will provide a test site that can be accessed via the URL `http://127.0.0.1
 
 By default, the live-reloading feature is enabled, which means that upon the occurrence of a change in the templates, the website will reload automatically and display the updated content immediately.
 
-The `MMDocs` image is configured by default to utilize the `material` theme, which is intended to be exclusively used. If alterations to the HTML source of the `material` theme are desired, the theme must be overridden by using the `custom_dir` settings in the `mkdev.yml` configuration file. This should be already in place.
+The `MMDocs` image is configured by default to utilize the `material` theme, which is intended to be exclusively used. If alterations to the HTML source of the `material` theme are desired, the theme must be overridden by using the `custom_dir` option in the `mkdev.yml` configuration file. This should be already in place.
 
 ```text
 [...]
@@ -61,9 +61,23 @@ theme:
 [...]
 ```
 
-The structure of the `overrides_mkdocs_material` directory must mirror exactly the directory structure of the original theme. Any file in the `overrides_mkdocs_material` directory will replace the file with the same name that is part of the original theme. Furthermore, additional assets may also be placed in the `overrides_mkdocs_material` directory. The original theme files are present in the `../src/mkdocs_material` folder.
+The structure of the `overrides_mkdocs_material` directory must mirror exactly the directory structure of the original theme. Any file in the `overrides_mkdocs_material` directory will replace the file with the same name that is part of the original theme. Furthermore, additional assets may also be placed in the `overrides_mkdocs_material` directory. The original theme files are available for reference in the `../src/mkdocs_material` folder.
 
-In the event that it becomes necessary to add some CSS files to the theme without specifying them in the `mkdocs.yml` configuration file, it is necessary to create the `main.html` file within the `overrides_mkdocs_material` directory and then override the `styles` block. If the intention is to use the original block content while simply adding CSS files before or after, it is possible to use the `{{ super() }}` directive. This provides users with the option of using their own CSS files in addition with the `extra_css` directive in the `mkdocs.yml` configuration file.
+The CSS files are located in the directory `./overrides_mkdocs_material/assets/stylesheets/`, and they are organized into distinct categories based on their functionalities. The following list provides some examples.
+
+```text
+[...]
+
+./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customCOLORS.css
+./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customFULLBROWSERWIDTH.css
+./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customMDCONTENT.css
+./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customNAV.css
+./overrides_mkdocs_material/assets/stylesheets/EHARTnet.noTOC.css
+
+[...]
+```
+
+In the event that it becomes necessary to introduce some new CSS files to the theme without specifying them in the `mkdocs.yml` configuration file, it is necessary to create the `main.html` file within the `overrides_mkdocs_material` directory and then override the `styles` block. If the intention is to use the original block content while simply adding CSS files before or after, it is possible to use the `{{ super() }}` directive. This provides users with the option of using their own CSS files in addition with the `extra_css` option in the `mkdocs.yml` configuration file. This should also already be in place. The only remaining step is to insert the lines that have been idenitfied as being necessary.
 
 ```text
 {% extends "base.html" %}
@@ -82,17 +96,9 @@ In the event that it becomes necessary to add some CSS files to the theme withou
 [...]
 ```
 
-The CSS files are located in the directory `./overrides_mkdocs_material/assets/stylesheets/`, and they are organized into distinct categories based on their functionalities. The following list provides some examples.
+The process of modifying or inserting additional CSS content may now begin.
 
 ```text
-[...]
-
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customCOLORS.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customFULLBROWSERWIDTH.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customMDCONTENT.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customNAV.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.noTOC.css
-
 [...]
 ```
 
@@ -103,12 +109,6 @@ The `../dockerfile` is prepared to replace all content in the original `material
 
 COPY tmpl/overrides_mkdocs_material/ /usr/local/lib/python3.12/site-packages/material/templates/
 
-[...]
-```
-
-The process of modifying or inserting additional CSS content may now begin.
-
-```text
 [...]
 ```
 
