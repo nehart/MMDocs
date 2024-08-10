@@ -1,0 +1,1 @@
+The objective of this project is to enhance the user experience of building a website based on markdown files. Further details regarding the usage of this template can be found at https://nehart.ans.co.at/writing/mkdocs/TMPL_MMDOCs/.
