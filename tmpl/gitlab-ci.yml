@@ -1,7 +1,9 @@
 pages:
   image: "registry.ans.co.at/templates/mmdocs/mmdocs:latest"
   stage: "build"
-  script: "mkdocs build"
+  script:
+    - eval $(cat env.conf | sed 's/ = /=/' | sed 's/^/export /')
+    - mkdocs build
   artifacts:
     paths:
       - "public"
