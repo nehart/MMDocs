@@ -1,3 +1,5 @@
+<!-- OLD ... NEEDS TO BE RENEWED -->
+
 # JavaScript Development Tutorial
 
 This tutorial is designed for those who wish to contribute to the `MMDocs` image development, with a particular focus on the JavaScript components.
