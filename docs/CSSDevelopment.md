@@ -105,10 +105,6 @@ The `dockerfile` is prepared to replace all content in the original `material` t
 Following the completion of the development process, it is imperative to conduct a localised test.
 
 ```text
-cd ..
-```
-
-```text
 docker build --no-cache --file dockerfile --tag registry.ans.co.at/templates/mmdocs/mmdocs:latest .
 ```
 
@@ -118,6 +114,10 @@ rm -rf test; mkdir test; cd test
 
 ```text
 cp ../compose.yml .
+```
+
+```text
+cp ../env.conf .
 ```
 
 ```text
@@ -138,10 +138,6 @@ docker compose run --rm --user $(id -u):$(id -g) mmdocs serve
 
 ```text
 docker compose run --rm --user $(id -u):$(id -g) mmdocs build
-```
-
-```text
-docker compose run --rm --user $(id -u):$(id -g) mmdocs update
 ```
 
 ```text

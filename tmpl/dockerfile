@@ -45,12 +45,12 @@ COPY mkbase.yml /usr/local/share/mmdocs-tmpl/mkbase.yml
 COPY mkdocs.yml /usr/local/share/mmdocs-tmpl/mkdocs.yml
 COPY gitlab-ci.yml /usr/local/share/mmdocs-tmpl/.gitlab-ci.yml
 
-COPY tmpl/overrides/ /usr/local/lib/python3.12/site-packages/material/templates/
+COPY overrides/ /usr/local/lib/python3.12/site-packages/material/templates/
 
-COPY tmpl/pages/index.md /usr/local/share/mmdocs-tmpl/pages/index.md
-COPY tmpl/pages/cover.png /usr/local/share/mmdocs-tmpl/pages/cover.png
-COPY tmpl/pages/favicon.png /usr/local/share/mmdocs-tmpl/pages/favicon.png
-COPY tmpl/pages/logo.svg /usr/local/share/mmdocs-tmpl/pages/logo.svg
+COPY pages/index.md /usr/local/share/mmdocs-tmpl/pages/index.md
+COPY pages/cover.png /usr/local/share/mmdocs-tmpl/pages/cover.png
+COPY pages/favicon.png /usr/local/share/mmdocs-tmpl/pages/favicon.png
+COPY pages/logo.svg /usr/local/share/mmdocs-tmpl/pages/logo.svg
 
 #
 # ################
