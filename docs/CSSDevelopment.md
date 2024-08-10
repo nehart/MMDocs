@@ -185,7 +185,7 @@ Once the development process is finished, the development branch must be merged 
 After merging a development branch into the main branch, a new tag associated with the build date must be created. The build date must follow the format `YYYYMMDDXX`. The tag is also used to initiate a pipeline that generates the docker image in the container registry along with a new release.
 
 ```text
-git tag -a V1.3.1-B2024012100 -m ""
+git tag -a 2024012100 -m ""
 ```
 
 ```text
