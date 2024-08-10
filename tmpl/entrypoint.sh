@@ -77,9 +77,7 @@ fi
 if [[ ! -f "/mnt/mkdocs.yml" ]]
 then
 
-  echo "[INFO] no mkpdf project found"
-  echo "[INFO] rerun \"docker compose run --rm mkpdf init\"."
-
+  echo "[ERROR] no mkdocs project found"
   exit 0
 
 fi
