@@ -1,8 +1,6 @@
 # CSS Development Tutorial
 
-This tutorial is designed for those who wish to contribute to the `MMDocs` image development, with a particular focus on the CSS components.
-
-Norbert EHART (norbert@ehart.net) created this tutorial in 2024 and it is licensed under the CC-BY license.
+This tutorial was created by Norbert EHART (norbert@ehart.net) in 2024 under the CC-BY license and is intended to provide information to those working on the `MMDocs` project (with a particular focus on the CSS components).
 
 ## Clone the Repository
 
@@ -43,7 +41,7 @@ cd tmpl
 The development server can be started via the following command.
 
 ```text
-docker compose run --rm mkdocs serve --config-file "mkdev.yml" --watch "mkdocs.yml" --watch "mkdev.yml" --watch "mkbase.yml" --watch "./overrides_mkdocs_material/" --watch "./overrides_pdf/" 
+docker compose run --rm --user $(id -u):$(id -g) mkdocs serve --config-file "mkdev.yml" 
 ```
 
 This will provide a test site that can be accessed via the URL `http://127.0.0.1:8000/`.
@@ -56,28 +54,28 @@ The `MMDocs` image is configured by default to utilize the `material` theme, whi
 [...]
 
 theme:
-  custom_dir: 'overrides_mkdocs_material'
+  custom_dir: 'overrides'
 
 [...]
 ```
 
-The structure of the `overrides_mkdocs_material` directory must mirror exactly the directory structure of the original theme. Any file in the `overrides_mkdocs_material` directory will replace the file with the same name that is part of the original theme. Furthermore, additional assets may also be placed in the `overrides_mkdocs_material` directory. The original theme files are available for reference in the `../src/mkdocs_material` folder.
+The structure of the `overrides` directory must mirror exactly the directory structure of the original theme. Any file in the `overrides` directory will replace the file with the same name that is part of the original theme. Furthermore, additional assets may also be placed in the `overrides` directory. The original theme files are available for reference in the `../src` folder.
 
-The CSS files are located in the directory `./overrides_mkdocs_material/assets/stylesheets/`, and they are organized into distinct categories based on their functionalities. The following list provides some examples.
+The CSS files are located in the directory `./overrides/assets/stylesheets`, and they are organized into distinct categories based on their functionalities. The following list provides some examples.
 
 ```text
 [...]
 
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customCOLORS.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customFULLBROWSERWIDTH.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customMDCONTENT.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.customNAV.css
-./overrides_mkdocs_material/assets/stylesheets/EHARTnet.noTOC.css
+./overrides/assets/stylesheets/EHARTnet.customCOLORS.css
+./overrides/assets/stylesheets/EHARTnet.customFULLBROWSERWIDTH.css
+./overrides/assets/stylesheets/EHARTnet.customMDCONTENT.css
+./overrides/assets/stylesheets/EHARTnet.customNAV.css
+./overrides/assets/stylesheets/EHARTnet.noTOC.css
 
 [...]
 ```
 
-In the event that it becomes necessary to introduce some new CSS files to the theme without specifying them in the `mkdocs.yml` configuration file, it is necessary to create the `main.html` file within the `overrides_mkdocs_material` directory and then override the `styles` block. If the intention is to use the original block content while simply adding CSS files before or after, it is possible to use the `{{ super() }}` directive. This provides users with the option of using their own CSS files in addition with the `extra_css` option in the `mkdocs.yml` configuration file. This should also already be in place. The only remaining step is to insert the lines that have been idenitfied as being necessary.
+In the event that it becomes necessary to introduce some new CSS files to the theme without specifying them in the `mkdocs.yml` configuration file, it is necessary to create the `main.html` file within the `overrides` directory and then override the `styles` block. If the intention is to use the original block content while simply adding CSS files before or after, it is possible to use the `{{ super() }}` directive. This provides users with the option of using their own CSS files in addition with the `extra_css` option in the `mkdocs.yml` configuration file. This should also already be in place. The only remaining step is to insert the lines that have been idenitfied as being necessary.
 
 ```text
 {% extends "base.html" %}
@@ -102,62 +100,60 @@ The process of modifying or inserting additional CSS content may now begin.
 [...]
 ```
 
-The `../dockerfile` is prepared to replace all content in the original `material` theme template with the content in `overrides_mkdocs_material`. This eliminates the need for users to have the `overrides_mkdocs_material` directory locally present.
+The `dockerfile` is prepared to replace all content in the original `material` theme template with the content in `overrides`. This eliminates the need for users to have the `overrides` directory locally present.
 
-```text
-[...]
-
-COPY tmpl/overrides_mkdocs_material/ /usr/local/lib/python3.12/site-packages/material/templates/
-
-[...]
-```
-
-## Docker Image Testing
-
-Following the completion of the development process, it is imperative to conduct a localised testing of the Docker image.
+Following the completion of the development process, it is imperative to conduct a localised test.
 
 ```text
 cd ..
 ```
 
 ```text
-docker build --no-cache -f dockerfile -t registry.ans.co.at/templates/mmdocs/mmdocs:latest .
+docker build --no-cache --file dockerfile --tag registry.ans.co.at/templates/mmdocs/mmdocs:latest .
 ```
 
 ```text
-cd test
+rm -rf test; mkdir test; cd test
 ```
 
 ```text
-docker compose run --rm mmdocs bash
+cp ../compose.yml .
 ```
 
 ```text
-docker compose run --rm mmdocs sh
+docker compose run --rm --user $(id -u):$(id -g) mmdocs bash
 ```
 
 ```text
-docker compose run --rm mmdocs serve --config-file mkdocs.yml
+docker compose run --rm --user $(id -u):$(id -g) mmdocs sh
 ```
 
 ```text
-docker compose run --rm mmdocs build --config-file mkdocs.yml
+docker compose run --rm --user $(id -u):$(id -g) mmdocs init
 ```
 
 ```text
-docker compose run --rm mmdocs build --config-file mkpdf.yml
+docker compose run --rm --user $(id -u):$(id -g) mmdocs serve
 ```
 
 ```text
-docker compose run --rm mmdocs update
+docker compose run --rm --user $(id -u):$(id -g) mmdocs build
 ```
 
 ```text
-docker compose run --rm mmdocs clean
+docker compose run --rm --user $(id -u):$(id -g) mmdocs update
 ```
 
 ```text
-cd ..
+docker compose run --rm --user $(id -u):$(id -g) mmdocs clean
+```
+
+```text
+cd ..; rm -rf test
+```
+
+```text
+docker image prune --all --force
 ```
 
 ## Pushing the Changes
@@ -190,7 +186,7 @@ Once the development process is finished, the development branch must be merged 
 
 ## Tags and Releases
 
-After merging a development branch into the main branch, a new tag associated with the version number must be created. Tags should follow the format `V{MAJOR_VERSION}.{MINOR_VERSION}.{PATCH_VERSION}-B{BUILD_DATE}` (for example V1.3.1-B2024012100). Tags are also used to trigger a CI/CD pipeline via the `.gitlab-ci.yml` file. Once a new tag is created, the pipeline starts and generates the docker image in the container registry, along with a new release.
+After merging a development branch into the main branch, a new tag associated with the build date must be created. The build date must follow the format `YYYYMMDDXX`. The tag is also used to initiate a pipeline that generates the docker image in the container registry along with a new release.
 
 ```text
 git tag -a V1.3.1-B2024012100 -m ""
@@ -199,3 +195,9 @@ git tag -a V1.3.1-B2024012100 -m ""
 ```text
 git push --tags
 ```
+
+## Documentation
+
+It is essential that any changes made are documented accordingly to ensure accuracy and consistency.
+
+  * https://gitlab.ans.co.at/templates/mmdocs/-/blob/main/docs/CSSDevelopment.md

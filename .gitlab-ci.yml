@@ -1,23 +1,36 @@
 stages:
-  - create-docker-image
-  - create-release
+  - 'create-docker-image'
+  - 'create-release'
 
 create-docker-image:
-  image: docker:latest
-  stage: create-docker-image
+  image: 'docker:latest'
+  stage: 'create-docker-image'
   services:
-    - docker:dind
-  script: 'sh ./scripts/create-docker-image.sh'
+    - 'docker:dind'
+  script:
+    ##########################################################################################
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN registry.ans.co.at
+    ##########################################################################################
+    - cd tmpl
+    ##########################################################################################
+    - export IMAGE_VERSION=$(cat dockerfile | grep ARG.*IMAGE_VERSION | cut -d " " -f2 | cut -d "=" -f2)
+    - docker build --file dockerfile --build-arg IMAGE_BUILD_DATE=$CI_COMMIT_TAG --tag registry.ans.co.at/templates/mmdocs/mmdocs:V$IMAGE_VERSION-B$CI_COMMIT_TAG .
+    - docker push registry.ans.co.at/templates/mmdocs/mmdocs:V$IMAGE_VERSION-B$CI_COMMIT_TAG
+    - docker build --file dockerfile --build-arg IMAGE_BUILD_DATE=$CI_COMMIT_TAG --tag registry.ans.co.at/templates/mmdocs/mmdocs:latest .
+    - docker push registry.ans.co.at/templates/mmdocs/mmdocs:latest
+    ##########################################################################################
+    - cd ..
+    ##########################################################################################
   rules:
-    - if: '$CI_COMMIT_TAG =~ /^[V]?[\d]+[\.][\d]+[\.][\d]+[-][B]?[0-9]{10}$/'
+    - if: '$CI_COMMIT_TAG =~ /^[0-9]{10}$/'
 
 create-release:
-  image: registry.gitlab.com/gitlab-org/release-cli:latest
-  stage: create-release
+  image: 'registry.gitlab.com/gitlab-org/release-cli:latest'
+  stage: 'create-release'
   script: 'echo "running create-release job"'
   release:
     name: '$CI_COMMIT_TAG'
     description: 'Created with CI/CD'
     tag_name: '$CI_COMMIT_TAG'
   rules:
-    - if: '$CI_COMMIT_TAG =~ /^[V]?[\d]+[\.][\d]+[\.][\d]+[-][B]?[0-9]{10}$/'
+    - if: '$CI_COMMIT_TAG =~ /^[0-9]{10}$/'

@@ -1,15 +1,13 @@
+#
+# MKDOCS.YML
+#
+
+#
+# SOURCES
+#   > https://www.mkdocs.org/user-guide/configuration/
+#
+
 INHERIT: './mkbase.yml'
-
-
-theme:
-  logo: './logo.svg'
-  favicon: './favicon.png'
-
-
-site_author: 'John Doe (lorem@ipsum.net)'
-site_name: 'Lorem Ipsum'
-site_url: 'https://lorem.ipsum.net'
-
 
 nav:
   - 'Introduction': './index.md'

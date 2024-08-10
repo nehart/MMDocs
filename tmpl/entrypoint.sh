@@ -63,29 +63,22 @@ fi
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #
 
-if [[ ! -f "/mnt/mkdocs.yml" ]]
+if [[ "$1" == 'init' ]]
 then
 
-  echo "[INFO] no mkdocs project found"
   echo "[INFO] installing template."
   cp -r /usr/local/share/mmdocs-tmpl/. ./
   echo "[INFO] template installed."
-  echo ""
-  echo ""
+
+  exit 0
 
 fi
 
-#
-# "MMDOCS" UPDATE A PROJECT
-# %%%%%%%%%%%%%%%%%%%%%%%%%
-#
-
-if [[ "$1" == 'update' ]]
+if [[ ! -f "/mnt/mkdocs.yml" ]]
 then
 
-  echo "[INFO] replacing file mkbase.yml"
-  cp -r /usr/local/share/mmdocs-tmpl/mkbase.yml .
-  echo "[INFO] project updated."
+  echo "[INFO] no mkpdf project found"
+  echo "[INFO] rerun \"docker compose run --rm mkpdf init\"."
 
   exit 0
 

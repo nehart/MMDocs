@@ -1,11 +1,21 @@
-site_author: 'John Doe (lorem@ipsum.net)'
-site_name: 'Lorem Ipsum'
-site_url: 'https://lorem.ipsum.net'
+#
+# MKBASE.YML
+#
 
+#
+# SOURCES
+#   > https://www.mkdocs.org/user-guide/configuration/
+#   > https://github.com/mkdocs/mkdocs/issues/1195
+#   > https://squidfunk.github.io/mkdocs-material/
+#   > https://pypi.org/project/plantuml-markdown/
+#
+
+site_author: !!python/object/apply:os.getenv ["MMDOCS_SITE_AUTHOR"]
+site_name: !!python/object/apply:os.getenv ["MMDOCS_SITE_NAME"]
+site_url: !!python/object/apply:os.getenv ["MMDOCS_SITE_URL"]
 
 docs_dir: 'pages'
 site_dir: 'public'
-
 
 theme:
   name: 'material'
@@ -27,20 +37,16 @@ theme:
         icon: 'material/brightness-4'
         name: 'Light Mode'
 
-
 plugins:
   - include-markdown:
       opening_tag: "{!"
       closing_tag: "!}"
 
-
 nav:
   - 'Introduction': './index.md'
 
-
 extra:
   generator: false
-
 
 markdown_extensions:
   - attr_list

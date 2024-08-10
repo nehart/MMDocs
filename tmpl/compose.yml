@@ -1,23 +1,31 @@
 services:
-
     mkdocs:
-      image: registry.ans.co.at/docker/mkdocs/mkdocs:latest
-      restart: 'no'
-      network_mode: 'host'
+      image: "registry.ans.co.at/docker/mkdocs/mkdocs:latest"
+      restart: "no"
+      network_mode: "host"
       logging:
-        driver: 'journald'
+        driver: "journald"
+        options:
+          tag: "{{.Name}}/{{.ID}}"
+      env_file:
+        - path: "env.conf"
+          required: false
       volumes:
-        - './:/mnt'
-        - '/etc/timezone:/etc/timezone:ro'
-        - '/etc/localtime:/etc/localtime:ro'
-
+        - "./:/mnt"
+        - "/etc/timezone:/etc/timezone:ro"
+        - "/etc/localtime:/etc/localtime:ro"
     mmdocs:
-      image: registry.ans.co.at/templates/mmdocs/mmdocs:latest
-      restart: 'no'
-      network_mode: 'host'
+      image: "registry.ans.co.at/templates/mmdocs/mmdocs:latest"
+      restart: "no"
+      network_mode: "host"
       logging:
-        driver: 'journald'
+        driver: "journald"
+        options:
+          tag: "{{.Name}}/{{.ID}}"
+      env_file:
+        - path: "env.conf"
+          required: false
       volumes:
-        - './:/mnt'
-        - '/etc/timezone:/etc/timezone:ro'
-        - '/etc/localtime:/etc/localtime:ro'
+        - "./:/mnt"
+        - "/etc/timezone:/etc/timezone:ro"
+        - "/etc/localtime:/etc/localtime:ro"

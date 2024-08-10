@@ -1,0 +1,73 @@
+#
+# ##########
+# BASE IMAGE
+# ##########
+#
+
+FROM registry.ans.co.at/docker/mkdocs/mkdocs:latest
+
+#
+# #################
+# IMAGE INFORMATION
+# #################
+#
+
+ARG IMAGE_VERSION='1.0.0'
+ARG IMAGE_BUILD_DATE='0000000000'
+
+ENV MMDOCS_VERSION="V${IMAGE_VERSION}"
+ENV MMDOCS_BUILD_DATE="B${IMAGE_BUILD_DATE}"
+ENV MMDOCS_IMAGE_MAINTAINER='Norbert EHART (norbert@ehart.net)'
+
+#
+# #####################
+# ENVIRONMENT VARIABLES
+# #####################
+#
+
+ENV HOME="/tmp/"
+
+#
+# ######################
+# CONTAINER DEFAULT USER
+# ######################
+#
+
+USER 0:0
+
+#
+# #############
+# COPY TEMPLATE
+# #############
+#
+
+COPY mkbase.yml /usr/local/share/mmdocs-tmpl/mkbase.yml
+COPY mkdocs.yml /usr/local/share/mmdocs-tmpl/mkdocs.yml
+COPY gitlab-ci.yml /usr/local/share/mmdocs-tmpl/.gitlab-ci.yml
+
+COPY tmpl/overrides/ /usr/local/lib/python3.12/site-packages/material/templates/
+
+COPY tmpl/pages/index.md /usr/local/share/mmdocs-tmpl/pages/index.md
+COPY tmpl/pages/cover.png /usr/local/share/mmdocs-tmpl/pages/cover.png
+COPY tmpl/pages/favicon.png /usr/local/share/mmdocs-tmpl/pages/favicon.png
+COPY tmpl/pages/logo.svg /usr/local/share/mmdocs-tmpl/pages/logo.svg
+
+#
+# ################
+# ENTRYPOINT & CMD
+# ################
+#
+
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["entrypoint.sh"]
+CMD [""]
+
+#
+# ##############
+# WORKING FOLDER
+# ##############
+#
+
+WORKDIR /mnt/
