@@ -2,7 +2,7 @@ pages:
   image: "registry.ans.co.at/templates/mmdocs/mmdocs:latest"
   stage: "build"
   script:
-    - eval $(cat env.conf | sed 's/ = /=/' | sed 's/^/export /')
+    - eval $(cat env.conf | sed -e '/^#/d' | sed -e '/^$/d' |sed 's/ = /=/' | sed 's/^/export /')
     - mkdocs build
   artifacts:
     paths:
